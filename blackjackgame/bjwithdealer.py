@@ -1,3 +1,6 @@
+'''
+Blackjack game 1 player 1 dealer
+'''
 import random
 
 class Deck:
