@@ -1,3 +1,6 @@
+'''
+Blackjack game with 2 player
+'''
 import random
 
 class Deck:
