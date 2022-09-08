@@ -1,9 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 turn = 0
-board = [['', '', ''],
-        ['', '', ''],
-        ['', '', '']]
+board = [['', '', ''], ['', '', ''], ['', '', '']]
 
 #Whenever the user selects the quit option, this message is displayed
 def Quit():
@@ -21,14 +19,14 @@ def breakWin():
 
 #replay button
 def replay():
-	global board, root
-
-	root.destroy()
+    global board, root, turn
+    root.destroy()
+    turn = 0
 	#Reset board
-	board = [['', '', ''],
+    board = [['', '', ''],
         ['', '', ''],
         ['', '', '']]
-	TicTacToeGUI()
+    TicTacToeGUI()
 
 #Displays the winning condition
 def displayWinner(winner):
@@ -82,11 +80,11 @@ def changeVal(button,boardValRow,boardValCol):
     if button["text"] == "":
         if (turn%2) == 0:
             button["text"] = "X"
-            l1 = Label(root,text="PLAYER: 2(O)",height=3,font=("COMIC SANS MS",10,"bold"),bg="white").grid(row=0,column=0)
+            l1 = Label(root,text="PLAYER2 : (O)",height=3,font=("COMIC SANS MS",10,"bold"),bg="white").grid(row=0,column=0)
             board[boardValRow][boardValCol] = "X"
         else:
             button["text"] = "O"
-            l1 = Label(root,text="PLAYER: 1(X)",height=3,font=("COMIC SANS MS",10,"bold"),bg="white").grid(row=0,column=0)
+            l1 = Label(root,text="PLAYER1 : (X)",height=3,font=("COMIC SANS MS",10,"bold"),bg="white").grid(row=0,column=0)
             board[boardValRow][boardValCol] = "O"
 
         turn = turn+1
@@ -106,7 +104,7 @@ def TicTacToeGUI():
     root.configure(bg="white")  #Making the background of the window as white
 
     #Displaying the player
-    l1 = Label(root,text="PLAYER: 1(X)",height=3,font=("COMIC SANS MS",10,"bold"),bg="white")
+    l1 = Label(root,text="PLAYER1 : (X)",height=3,font=("COMIC SANS MS",10,"bold"),bg="white")
     l1.grid(row=0,column=0)
 
     #Replay button
@@ -144,13 +142,6 @@ def TicTacToeGUI():
 
     backButton = Button(root,text="Main Menu",command=backMenu,font=("COMIC SANS MS",12,"bold"))
     backButton.grid(row=5,column=1)
-
-#Function for multi player
-def multi():
-	global root
-
-	root.destroy()
-	TicTacToeGUI()
 
 #Back to main menu
 def backMenu():
